@@ -1,29 +1,27 @@
 import react from 'react'
-import Header from "./components/Header/Header";
-import StringProp from './components/StringProp';
-import NumberState from './components/NumberState';
-import StringState from './components/StringState';
-import BooleanState from './components/BooleanState';
-import InputState from './components/InputState';
-import RenderList from './components/list-array/RenderList';
-import ObjectList from './components/list-array/ObjectList';
+import { Route, Routes } from 'react-router-dom'
+import Home from './pages/Home'
+import Contact from './pages/Contact'
+import About from './pages/About'
+import Header from './components/Header/Header'
+import SingleProduct from './pages/SingleProduct'
+import Products from './pages/Products'
+
 
 function App() {
-  const firstName = "egzon";
-  const lastName = "uka";
+ 
   return (
-    <>
+    <div>
       <Header />
-      <StringProp firstName={firstName} lastName={lastName} />
-      <NumberState />
-      <StringState />
-      <BooleanState />
-      <InputState />
-      <hr />
-      <RenderList />
-      <ObjectList/>
-      <hr />
-    </>
+      <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/contact' element={<Contact />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/products' element={<Products />} />
+          <Route path='/products/:id' element={<SingleProduct />} />
+      </Routes>
+    </div>
+
   )
 }
 
